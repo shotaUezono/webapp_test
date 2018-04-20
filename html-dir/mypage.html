@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="../css-dir/csstest_mypage.css">
+    <title>itc introduction,for IT Clerical workers</title>
+</head>
+<body>
+    <div id="header" style="border-style:outset">
+        <h1 style="font-size:40px">User page's</h1>
+            <div class="welcome" style="padding: 5px 5px 5px 5px;">
+                <p id="welcomeMsg">Welcome to ITC's Introduction Application.</p>
+            </div>
+    </div>
+
+    <p></p>
+
+    <div id="container">
+
+        <div id="nav">
+            <div class="profile" style="border-style:outset; border-color:yellow; padding:2px 2px 2px 2px;">
+                familyname :<p id="familyname"></p>
+                lastname : <p id="firstname"></p>
+                username : <p id="username"></p>
+            </div>
+
+            <form id="pch" action="../cgi-bin/profile_change.py" method="POST" style="padding:5px 5px 2px 2px;">
+            </form>
+        </div>
+
+        <div id="content">
+
+            <form id="qGo" action="../cgi-bin/question_page.py" method="POST">
+            </form>
+        </div>
+
+        <script src="../js-dir/queryChange.js">
+
+        </script>
+    </div>
+</body>
+</html>
+

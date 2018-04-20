@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>itc introduction,for IT Clerical workers</title>
+    <link rel="stylesheet" type="text/css" href="cgi-bin/csstest.css">
+</head>
+<body>
+<h1>itc introduction,for IT Clerical workers</h1>
+<div style="border-style:solid; border-witdh: 2px;">
+    <p a>Please input infomation of your new account.</p>
+    <p>username is any string.</p>
+    <p>You need to put more than 8 letters in the password and again password fields.</p>
+    <p>Then you can press submit button.</p>
+    <p>[[ ATTENTION ]]</p>
+    <p>Here, you can use half-width alphanumeric characters, symbols ("_", "-", "#", "@").</p>
+    <p>Do not use double-byte characters.</p>
+</div>
+    <form action="/cgi-bin/createAc.py" name="create" method="POST">
+
+        <p>Please your username :
+        <input type="text" id="username" required value="">
+        </p>
+        <p>Please your password :
+        <input type="password" name="firstpass" minlength="8" required onkeyup="stringadd()">
+        </p>
+	    <p>Input password again :
+        <input type="password" name="secondpass" minlength="8" required onkeyup="stringadd2()">
+        </p>
+        <input type="submit" id="submit" disabled>
+        <div id="attention">password is missmatch</div>
+
+    </form>
+
+<script async>
+    var first = "";
+    var second = "";
+
+    function stringadd(){
+        first = document.create.firstpass.value;
+    }
+    function stringadd2(){
+        second = document.create.secondpass.value;
+    }
+    var check = function(){
+        if((first.length >= 8 ) && (second.length >= 8)){
+            document.getElementById("submit").disabled = false;
+            if(first == second){
+                document.getElementById("attention").innerHTML= "password is ok!!!!!!!";
+            }else{
+                document.getElementById("attention").innerHTML= "password is missmatch";
+            }
+        }else{
+             document.getElementById("submit").disabled = true;
+        }
+
+        setTimeout(check, 100);
+    }
+
+    check();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+body{
+background-color:aqua
+}
+
+.welcome{
+    width:310px
+}
+p#welcomeMsg{
+font-size:15px;
+color:blue;
+margin:2px;
+}
+
+.profile{
+    width:200px
+    }
+#header {
+margin: 0 auto;
+background-color: #ffffff
+}
+
+#container {
+width:  100%;
+margin: 0 auto;
+background-color: #ffffff
+border-left: 2px #ffffff solid;
+border-right: 2px #ffffff solid;
+}
+
+#nav {
+float: left;
+width: 240px
+}
+
+#content {
+float: left;
+width 560px
+}
+
+
+
