@@ -18,11 +18,9 @@ html_body = """
     """
 
 true_body="""
-<body onLoad=setTimeout("location.href='../html-dir/mypage.html?user=%s&familyname=%s&firstname=%s&age=%s'",3000)>
+<body onLoad=setTimeout("location.href='test_mypage.py'",3000)>
 <h1>login successfull</h1>
 <p>jump to mypage 3sec ago</p>
-<script src="../js-dir/cookie_set.js>
-</script>
 </body>
 """
 
@@ -45,22 +43,21 @@ if db.account_check(input_name, input_pass):
     familyname = str(ac_info[2])
     firstname = str(ac_info[3])
     age = str(ac_info[4])
-    content = (html_body % (true_body % (input_name, familyname, firstname, age)))
+
+
     cook["user"] = input_name
     cook["user"]["path"] = "/"
-    cook["user"]["max-age"] = 300
 
     cook["family"] = familyname
     cook["family"]["path"] = "/"
-    cook["family"]["max-age"] = 300
 
     cook["first"] = firstname
     cook["first"]["path"] = "/"
-    cook["first"]["max-age"] = 300
+
+    content=true_body
 
 else:
     content = (html_body % false_body)
-
 
 res=Response()
 res.set_body(content)

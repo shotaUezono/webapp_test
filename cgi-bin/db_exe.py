@@ -51,5 +51,11 @@ class db_exe():
         raise Exception('account check NG')
 
     def account_info_update(self, string, username):
-        self.cur.execute("""UPDATE account SET %s WHERE name = %s""" % (string, username))
+        print("""UPDATE account SET %s WHERE name="%s";""" % (string, username))
+        self.cur.execute("""UPDATE account SET %s WHERE name="%s";""" % (string, username))
+        self.con.commit()
 
+if __name__ == '__main__':
+    db = db_exe()
+
+    db.account_info_update('familyname="test",firstname="taro"', 'admin')

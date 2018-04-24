@@ -98,7 +98,7 @@ def get_htmltemplate_mypage():
     <html lang="ja">
     <head>
         <meta http-equiv="content-type" content="text/html;charset=utf-8">
-        <link rel="stylesheet" type="text/css" href="../css-dir/csstest_mypage.css">
+        <link rel="stylesheet" type="text/css" href="../css-dir/mypage.css">
         <title>itc introduction,for IT Clerical workers</title>
     </head>
     %s

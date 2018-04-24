@@ -27,8 +27,8 @@ html_bodytest = """
 <p>What do you change infomation?</p>
 <form action="change_check.py" method="POST">
     <p></p>
-    <p>after familyname : <input id="family" type="text"></p>
-    <p>after firstname : <input id="first" type="text"></p>
+    <p>after familyname : <input name="family" type="text"></p>
+    <p>after firstname : <input name="first" type="text"></p>
     <input type="submit" name="submit" value="exe change">
 </form>
 
@@ -36,15 +36,9 @@ html_bodytest = """
 """
 
 req = Request()
-f = req.form
-value = ""
-try:
-    value=f.getvalue("user", "ttttttt")
-except:
-    pass
 
 res=Response()
-body=html_bodytest%value
+body=html_bodytest
 
 res.set_body(get_htmltemplate_mypage()%body)
 print(str(res))
