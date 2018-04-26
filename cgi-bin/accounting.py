@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 #  coding: utf-8
 from httphandler import  Request, Response, get_htmltemplate
+import http.cookies as cook
 import cgitb
 cgitb.enable()
 
@@ -43,7 +44,8 @@ create_account_body="""
 """
 
 content=""
-
+c = cook.SimpleCookie()
+c.clear()
 def login_form():
     global content
     content+= login_form_body
@@ -62,4 +64,5 @@ else:
 res=Response()
 body=content
 res.set_body(get_htmltemplate()%body)
+
 print(str(res))

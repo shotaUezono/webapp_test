@@ -1,14 +1,7 @@
 
-var r = document.cookie.split(";");
-console.log(r);
-cookieObj={}
-r.forEach(function(value){
-    var content = value.trim().split('=');
-    cookieObj[content[0]] = content[1];
-})
-console.log(cookieObj)
 
-var user = cookieObj["user"];
+
+var user = document.getElementById("username").innerHTML;
 f = document.getElementById("pch");
 f2 = document.getElementById("qGo");
 

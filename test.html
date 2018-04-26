@@ -3,62 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>itc introduction,for IT Clerical workers</title>
-    <link rel="stylesheet" type="text/css" href="cgi-bin/csstest.css">
+    <link rel="stylesheet" type="text/css" href="css-dir/csstest.css">
 </head>
 <body>
-<h1>itc introduction,for IT Clerical workers</h1>
-<div style="border-style:solid; border-witdh: 2px;">
-    <p a>Please input infomation of your new account.</p>
-    <p>username is any string.</p>
-    <p>You need to put more than 8 letters in the password and again password fields.</p>
-    <p>Then you can press submit button.</p>
-    <p>[[ ATTENTION ]]</p>
-    <p>Here, you can use half-width alphanumeric characters, symbols ("_", "-", "#", "@").</p>
-    <p>Do not use double-byte characters.</p>
-</div>
-    <form action="/cgi-bin/createAc.py" name="create" method="POST">
+<h1>Question Create Page</h1>
+<form id="questionForm" action="cgi-bin/tetete.py" method="get">
 
-        <p>Please your username :
-        <input type="text" id="username" required value="">
-        </p>
-        <p>Please your password :
-        <input type="password" name="firstpass" minlength="8" required onkeyup="stringadd()">
-        </p>
-	    <p>Input password again :
-        <input type="password" name="secondpass" minlength="8" required onkeyup="stringadd2()">
-        </p>
-        <input type="submit" id="submit" disabled>
-        <div id="attention">password is missmatch</div>
+        <input type="button" id="add" value="selection item add" onclick="addBox()">
+        <input type="button" id="del" value="selection item del" onclick="delBox()">
 
-    </form>
-
-<script async>
-    var first = "";
-    var second = "";
-
-    function stringadd(){
-        first = document.create.firstpass.value;
-    }
-    function stringadd2(){
-        second = document.create.secondpass.value;
-    }
-    var check = function(){
-        if((first.length >= 8 ) && (second.length >= 8)){
-            document.getElementById("submit").disabled = false;
-            if(first == second){
-                document.getElementById("attention").innerHTML= "password is ok!!!!!!!";
-            }else{
-                document.getElementById("attention").innerHTML= "password is missmatch";
-            }
-        }else{
-             document.getElementById("submit").disabled = true;
-        }
-
-        setTimeout(check, 100);
-    }
-
-    check();
+        <p><label id="title" for="Qtitle">title</label><input type="text" id="Qtitle"></p>
+        <label for="content" a>&nbsp;&nbsp;&nbsp;</label>
+        <textarea id="content" rows="10" cols="40" onfocus="qcon()">Please input here contents of the question!</textarea>
+        <p>Please fill in the selection item in the box below!</p>
+        <div id="selectItem">
+            <p id="1"><label for="q1">1,</label><textarea id="q1" rows="1" cols="40"></textarea></p>
+            <p id="2"><label for="q2">2,</label><textarea id="q2" rows="1" cols="40"></textarea></p>
+            <p id="3"><label for="q3">3,</label><textarea id="q3" rows="1" cols="40"></textarea></p>
+            <p id="4"><label for="q4">4,</label><textarea id="q4" rows="1" cols="40"></textarea></p>
+        </div>
+        <input type="submit" name="submit">
+</form>
+</body>
+<script src="js-dir/createQuestion.js">
 
 </script>
-</body>
 </html>
